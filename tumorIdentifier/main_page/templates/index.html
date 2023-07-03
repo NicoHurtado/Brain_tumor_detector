@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aplicación de predicción (Tumor)</title>
+</head>
+<body>
+    <h1>Aplicación de predicción de cancer cerebral (Tumor)</h1>
+
+    <form action="/predict/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="imagen">
+        <button type="submit">Ver prediccion</button>
+    </form>
+
+    {% if prediction %}
+        <h2>Resultado de la predicción:</h2>
+        <p>{{ prediction }}</p>
+    {% endif %}
+</body>
+</html>
